@@ -1,8 +1,9 @@
 require_relative 'main.rb'
+
 require 'test/unit'
 require 'rack/test'
 
-ENV['RACK_ENV'] = 'test'
+ENV['ENV_ENV'] = 'test'
 
 class IndexTest < Test::Unit::TestCase
   include Rack::Test::Methods
@@ -18,7 +19,7 @@ class IndexTest < Test::Unit::TestCase
   end
 end
 
-class NotFoundTest < Test::Unit::TestCase
+class NotFound < Test::Unit::TestCase
 
   include Rack::Test::Methods
   
@@ -27,10 +28,13 @@ class NotFoundTest < Test::Unit::TestCase
   end
   
   def test_it_is_a_404
-    get '/asdfasdfasd4232423'
+    get '/asdfasdfasd12312'
     assert_equal 404, last_response.status
-    assert_equal "can't find it. sorry", last_response.body
-    
   end
+  
+  def test_custom_404
+    get '/asdfasdfasd12312'
+    assert_equal "can't find it. sorry", last_response.body
+  end
+  
 end
-
