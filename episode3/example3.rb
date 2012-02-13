@@ -1,8 +1,6 @@
-Shoes.app :title => "A styling Sample" do
+Shoes.app :title => "A Styling Sample" do # very stylish indeed
   @text = para "Red with an underline"
   @text.style(:stroke => red, :underline => "single")
-  
-  @bluetext = para "Blue without an underline"
-  @bluetext.style(:stroke => blue)
+  @text2 = para "blue"
+  @text2.style(:stroke => blue)
 end
-
